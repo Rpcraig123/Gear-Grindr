@@ -1,11 +1,12 @@
 from flask_restful import Resource
 from flask import request
-#from models.user import User
+from models.post import Post
 
 class PostList(Resource):
     # get all posts
     def get(self):
-        pass 
+        msg = 'Resource good'
+        return msg 
     # new post
     def post(self):
         pass
