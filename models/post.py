@@ -29,5 +29,5 @@ class Post(db.Model):
 
     @classmethod
     def find_by_all(cls, post_id):
-        post = Post. query.filter_by(id=post_id).first()
+        post = Post.query.filter_by(id=post_id).first()
         return post
