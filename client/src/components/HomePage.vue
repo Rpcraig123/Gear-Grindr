@@ -12,14 +12,18 @@
         
         </b-nav>
         <form v-on:submit="getSearchResults" @submit.prevent>
-        <input 
-        type="search"
-        @input="handleChange"
-        :value='searchQuery'
+          <b-input-group class="mt-1">
+            <template #append >
+              <!-- <b-input-group-text><strong class="text-danger">!</strong></b-input-group-text> --><b-button type="submit">Search</b-button>
+            </template>
+            <b-form-input type="search" sm="3" @input="handleChange" :value='searchQuery'></b-form-input>
+          </b-input-group>
+        <!-- <input 
+        
 
-        >
-        <button type="submit">Search</button>
-      </form>
+        > -->
+        <!-- <b-button type="submit" variant="outline-secondary">Search</b-button> -->
+        </form>
       </div>
       
     </div>
