@@ -16,7 +16,7 @@
             <template #append >
               <!-- <b-input-group-text><strong class="text-danger">!</strong></b-input-group-text> --><b-button type="submit">Search</b-button>
             </template>
-            <b-form-input type="search" sm="3" @input="handleChange" :value='searchQuery'></b-form-input>
+            <b-form-input type="search" sm="3" v-model="searchQuery" :value='searchQuery'></b-form-input>
           </b-input-group>
         <!-- <input 
         
@@ -64,9 +64,7 @@ export default {
       const res = await axios.get(`${BASE_URL}/post`)
       this.posts = res.data
     },
-    handleChange(event) {
-      this.searchQuery = event.target.value
-    },
+   
     getSearchResults(){
       let posts = this.posts
       let result = posts.filter(post => post.post.includes(this.searchQuery))
