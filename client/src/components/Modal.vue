@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <b-button v-b-modal.modal-prevent-closing>Create A Post</b-button>
+      <b-button v-b-modal.modal-prevent-closing class="post-button">Create A Post</b-button>
 
       <b-modal
       id="modal-prevent-closing"
