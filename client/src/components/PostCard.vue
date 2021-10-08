@@ -17,9 +17,6 @@ export default {
   name: 'PostCard',
   props: ['post'],
   methods: {
-    // deletePost(postId) {
-    //   axios.delete(`${BASE_URL}/post/${postId}`)
-    // }
   }
 }
 </script>

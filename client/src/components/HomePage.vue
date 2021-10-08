@@ -12,21 +12,25 @@
         
         </b-nav>
         <form v-on:submit="getSearchResults" @submit.prevent>
-        <input 
-        type="search"
-        @input="handleChange"
-        :value='searchQuery'
+          <b-input-group class="mt-1">
+            <template #append >
+              <!-- <b-input-group-text><strong class="text-danger">!</strong></b-input-group-text> --><b-button type="submit">Search</b-button>
+            </template>
+            <b-form-input type="search" sm="3" v-model="searchQuery" :value='searchQuery'></b-form-input>
+          </b-input-group>
+        <!-- <input 
+        
 
-        >
-        <button type="submit">Search</button>
-      </form>
+        > -->
+        <!-- <b-button type="submit" variant="outline-secondary">Search</b-button> -->
+        </form>
       </div>
       
     </div>
     <h2>Posts</h2>
     <Modal />
-    <section v-if="searched==false">
-      <PostCard v-for="post in posts" :post="post" :username="username" :key="post.id" />
+    <section v-if="searched === false">
+      <PostCard v-for="post in posts" :post="post" :key="post.id" />
     </section>
     <section v-else>
       <PostCard v-for="post in searchResults" :post="post" :username="username" :key="post.id" />
@@ -60,9 +64,7 @@ export default {
       const res = await axios.get(`${BASE_URL}/post`)
       this.posts = res.data
     },
-    handleChange(event) {
-      this.searchQuery = event.target.value
-    },
+   
     getSearchResults(){
       let posts = this.posts
       let result = posts.filter(post => post.post.includes(this.searchQuery))
