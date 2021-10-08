@@ -7,9 +7,21 @@
             <img class="gear-logo" src="../assets/gear5.gif">
             <h2 class="gear-h2">GEAR GRINDR</h2>
             <h3 class="gear-h3">What grinds your gears?</h3>
+        
           </div>
+        
         </b-nav>
+        <form v-on:submit="getSearchResults" @submit.prevent>
+        <input 
+        type="search"
+        @input="handleChange"
+        :value='searchQuery'
+
+        >
+        <button type="submit">Search</button>
+      </form>
       </div>
+      
     </div>
     <h2>Posts</h2>
     <Modal />
@@ -33,6 +45,9 @@ export default {
   },
   data: () => ({
     posts: [],
+    searchQuery: '',
+    searchResults: [],
+    searched: false
   }),
   mounted: function() {
     this.getPosts()
@@ -42,6 +57,15 @@ export default {
       const res = await axios.get(`${BASE_URL}/post`)
       this.posts = res.data
       console.log("res", res.data)
+    },
+    handleChange(event) {
+      this.searchQuery = event.target.value
+    },
+    getSearchResults(){
+      let posts = this.posts
+      let result = posts.filter(post => post.post.includes(this.searchQuery))
+      this.searchResults = result
+      this.searched = true
     }
   }
 }
