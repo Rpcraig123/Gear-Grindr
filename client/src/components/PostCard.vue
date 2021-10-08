@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h2>{post.username}</h2>
-    <p>{post.post}</p>
-    <button @click="deletePost(post.id)"></button>
+    <b-card bg-variant="light" header="{post.username}" class="text-center">
+        <b-card-text>{post.post}</b-card-text>
+        <b-button @click="deletePost(post.id)" variant="primary">Delete Post</b-button>
+    </b-card>
   </div>
 </template>
 
