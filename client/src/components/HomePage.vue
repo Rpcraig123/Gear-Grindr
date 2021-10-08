@@ -25,8 +25,11 @@
     </div>
     <h2>Posts</h2>
     <Modal />
-    <section>
+    <section v-if="searched==false">
       <PostCard v-for="post in posts" :post="post" :username="username" :key="post.id" />
+    </section>
+    <section v-else>
+      <PostCard v-for="post in searchResults" :post="post" :username="username" :key="post.id" />
     </section>
   </div>
 </template>
@@ -64,6 +67,7 @@ export default {
     getSearchResults(){
       let posts = this.posts
       let result = posts.filter(post => post.post.includes(this.searchQuery))
+      console.log(result)
       this.searchResults = result
       this.searched = true
     }
