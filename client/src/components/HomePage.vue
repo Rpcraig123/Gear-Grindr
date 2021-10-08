@@ -9,8 +9,9 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 import PostCard from './PostCard.vue'
+import { BASE_URL } from '../globals'
 export default {
   name: 'Home',
   components: {
@@ -24,9 +25,9 @@ export default {
   },
   methods: {
     async getPosts() {
-      // const res = await axios.get(``)
-      // this.posts = res.data.results
-      // console.log('getPosts successfully ran')
+      const res = await axios.get(`${BASE_URL}/post`)
+      this.posts = res.data
+      console.log("res", res.data)
     }
   }
 }
