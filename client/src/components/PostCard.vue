@@ -2,7 +2,7 @@
   <div>
     <b-card bg-variant="light" :header="post.username" class="text-center">
         <b-card-text>{{post.post}}</b-card-text>
-        <DeletePop :postId="post.id" />
+        <DeletePop :postId="post.id" :key="post.id"/>
         <!-- <b-button @click="deletePost(post.id)" variant="primary">Delete Post</b-button> -->
     </b-card>
   </div>
