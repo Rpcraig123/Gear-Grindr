@@ -11,10 +11,8 @@
         </b-nav>
       </div>
     </div>
-    <div class="post-button">
-      <b-button block variant="outline-secondary">Create A Post</b-button>
-    </div>
     <h2>Posts</h2>
+    <Modal />
     <section>
       <PostCard v-for="post in posts" :post="post" :username="username" :key="post.id" />
     </section>
@@ -25,11 +23,13 @@
 import axios from 'axios'
 import PostCard from './PostCard.vue'
 import { BASE_URL } from '../globals'
+import Modal from './Modal.vue'
 // import { b-nav } from 'bootstrap-vue'
 export default {
   name: 'Home',
   components: {
-    PostCard
+    PostCard,
+    Modal
   },
   data: () => ({
     posts: [],
