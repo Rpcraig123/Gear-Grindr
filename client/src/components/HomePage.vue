@@ -25,8 +25,8 @@
     </div>
     <h2>Posts</h2>
     <Modal />
-    <section v-if="searched==false">
-      <PostCard v-for="post in posts" :post="post" :username="username" :key="post.id" />
+    <section v-if="searched === false">
+      <PostCard v-for="post in posts" :post="post" :key="post.id" />
     </section>
     <section v-else>
       <PostCard v-for="post in searchResults" :post="post" :username="username" :key="post.id" />
