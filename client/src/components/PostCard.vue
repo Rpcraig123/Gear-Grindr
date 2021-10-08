@@ -17,6 +17,7 @@ export default {
     deletePost(postId) {
       axios.delete(`${BASE_URL}/post/${postId}`)
       console.log("delete ran")
+      this.$forceUpdate()
     }
   }
 }
