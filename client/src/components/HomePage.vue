@@ -26,7 +26,7 @@
     <h2>Posts</h2>
     <Modal />
     <section>
-      <PostCard v-for="post in posts" :post="post" :username="username" :key="post.id" />
+      <PostCard v-for="post in posts" :post="post" :key="post.id" />
     </section>
   </div>
 </template>
