@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-card bg-variant="light" header="{post.username}" class="text-center">
-        <b-card-text>{post.post}</b-card-text>
+    <b-card bg-variant="light" :header="post.username" class="text-center">
+        <b-card-text>{{post.post}}</b-card-text>
         <b-button @click="deletePost(post.id)" variant="primary">Delete Post</b-button>
     </b-card>
   </div>
