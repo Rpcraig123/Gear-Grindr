@@ -1,41 +1,30 @@
 <template>
   <div>
-    <div class="mb-2">
-    <div class="mb-1">
-     <b-button @click="showMsgBoxTwo">msgBoxConfirm with options</b-button>
-     Return value: {{ String(boxTwo) }}
+  <b-button id="show-btn" @click="$bvModal.show('bv-modal-example')">Delete Post</b-button>
+
+  <b-modal id="bv-modal-example" hide-footer>
+    <template #modal-title>
+     Delete?
+    </template>
+    <div class="d-block text-center">
+      <h3>Are you sure you want to delete this post?</h3>
     </div>
-  </div>
+    <b-button class="mt-3" block @click="deletePost(postId)">Delete</b-button>
+    </b-modal>
+</div>
 </template>
 
 <script>
+import axios from 'axios'
+import {BASE_URL} from '../globals'
   export default {
-    data() {
-      return {
-        boxTwo: ''
-      }
-    },
-    methods: {
-      showMsgBoxTwo() {
-        this.boxTwo = ''
-        this.$bvModal.msgBoxConfirm('Please confirm that you want to delete everything.', {
-          title: 'Please Confirm Delete',
-          size: 'sm',
-          buttonSize: 'sm',
-          okVariant: 'danger',
-          okTitle: 'Delete',
-          cancelTitle: 'Cancel',
-          footerClass: 'p-2',
-          hideHeaderClose: false,
-          centered: true
-        })
-          .then(value => {
-            this.boxTwo = value
-          })
-          .catch(err => {
-            // An error occurred
-          })
-      }
+    name: "DeletePop",
+    props: ['postId'],
+   methods: {
+      deletePost(postId) {
+      axios.delete(`${BASE_URL}/post/${postId}`)
+      this.$bvModal.hide('bv-modal-example')
+    }
     }
   }
 </script>
