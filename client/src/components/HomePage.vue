@@ -56,7 +56,6 @@ export default {
     async getPosts() {
       const res = await axios.get(`${BASE_URL}/post`)
       this.posts = res.data
-      console.log("res", res.data)
     },
     handleChange(event) {
       this.searchQuery = event.target.value
