@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from models.db import db
 from models.post import Post
-
+from resources.post import PostList,Posts
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 db.init_app(app)
 migrate = Migrate(app, db)
 
-# api.add_resource(post.Post, '/')
-# api.add_resource(post.PostDetail, '/')
+api.add_resource(Posts, '/api/post/<int:id>')
+api.add_resource(PostList, '/api/post')
 if __name__ == '__main__':
     app.run(debug=True)
