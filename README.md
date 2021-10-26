@@ -7,7 +7,7 @@
 ![](client/src/assets/GearGrindr.gif)
 
 >## *Description*
-A full stack app where users can discuss what grinds their gears. Developed with a team as part of a hackathon. Built using Vue.js and flask. *Not currently compatible with mobile display sizes.*
+A full stack app where users can discuss what grinds their gears. Developed with a team as part of a hackathon. Built using Vue.js and Flask. *Not currently compatible with mobile display sizes.*
 
 ---
 
